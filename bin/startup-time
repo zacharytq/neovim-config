@@ -1,0 +1,4 @@
+#!/bin/bash
+
+$full
+hyperfine 'nvim --headless +qa'
