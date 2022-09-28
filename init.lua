@@ -1,6 +1,8 @@
 -- autocmds
 local autocmd = vim.api.nvim_create_autocmd
 
+require "core.options"
+
 -- dont list quickfix buffers
 autocmd("FileType", {
   pattern = "qf",
