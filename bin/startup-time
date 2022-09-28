@@ -39,4 +39,4 @@ if [ ! -f "$benchmarks_file" ]; then
 	echo "git_hash,mean,stddev,median,user,system,min,max,git_message" >> $benchmarks_file
 fi
 
-echo "$commit_hash,$out_mean,$out_stddev,$out_user,$out_system,$out_min,$out_max,$commit_message" >> $benchmarks_file
+echo "$commit_hash,$out_mean,$out_stddev,$out_median,$out_user,$out_system,$out_min,$out_max,$commit_message" >> $benchmarks_file
