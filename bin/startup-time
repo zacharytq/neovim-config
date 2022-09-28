@@ -1,4 +1,42 @@
 #!/bin/bash
 
-$full
-hyperfine 'nvim --headless +qa'
+# create temporary file
+tmpfile=$(mktemp /tmp/benchmark.XXXXXX)
+
+# delete temp file; the directory entry is deleted at once; the reference counter
+# of the inode is decremented only after the file descriptor has been closed.
+# The file content blocks are deallocated (this is the real deletion) when the
+# reference counter drops to zero.
+rm "$tmpfile"
+
+# your script continues
+: ...
+
+root_path=$( git rev-parse --show-toplevel )
+git_branch=$( git rev-parse --abbrev-ref HEAD )
+commit_hash=$( git rev-parse --short HEAD )
+commit_message=$( git log -1 --format=%s )
+benchmark_dir=$root_path/benchmarks/$git_branch
+benchmarks_file=$benchmark_dir/data.csv
+
+echo "Creating ${benchmark_dir} if not exists"
+
+mkdir -p $benchmark_dir
+
+hyperfine 'nvim --headless +qa' --warmup 5 --export-json $tmpfile
+
+out_mean=$( jq '.results | .[0].mean' $tmpfile )
+out_stddev=$( jq '.results | .[0].stddev' $tmpfile ) 
+out_median=$( jq '.results | .[0].median' $tmpfile )
+out_user=$( jq '.results | .[0].user' $tmpfile )
+out_system=$( jq '.results | .[0].system' $tmpfile )
+out_min=$( jq '.results | .[0].min' $tmpfile )
+out_max=$( jq '.results | .[0].max' $tmpfile )
+
+if [ ! -f "$benchmarks_file" ]; then
+	echo "Creating $benchmarks_file"
+	touch $benchmarks_file
+	echo "git_hash,mean,stddev,median,user,system,min,max,git_message" >> $benchmarks_file
+fi
+
+echo "$commit_hash,$out_mean,$out_stddev,$out_user,$out_system,$out_min,$out_max,$commit_message" >> $benchmarks_file
