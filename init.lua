@@ -30,6 +30,11 @@ return require('packer').startup(function(use)
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
 
+  use {
+    'catppuccin/nvim',
+    as = 'catppuccin',
+    config = require('plugins.catppuccin')
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
