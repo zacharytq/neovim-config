@@ -31,6 +31,11 @@ return require('packer').startup(function(use)
   -- use 'foo2/bar2.nvim'
 
   use {
+    'nvim-lua/plenary.nvim',
+    module = 'plenary'
+  }
+
+  use {
     'catppuccin/nvim',
     as = 'catppuccin',
     config = require('plugins.catppuccin')
