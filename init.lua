@@ -57,6 +57,19 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    config = function()
+      require "plugins.configs.telescope"
+    end,
+  }
+
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make',
+    module = 'telescope._extensions.fzf'
+  }
   -- Setup mason before lspconfig.
   -- Plugin docs says not to lazy load
   use {
