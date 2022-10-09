@@ -76,6 +76,7 @@ return require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     opt = true,
+    module = "lspconfig",
     setup = function()
       require('core.lazy_load').on_file_open "nvim-lspconfig"
     end,
@@ -87,6 +88,9 @@ return require('packer').startup(function(use)
   use {
     'simrat39/rust-tools.nvim',
     ft = 'rust',
+    config = function()
+      require "plugins.configs.rust-tools"
+    end,
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
