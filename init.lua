@@ -40,7 +40,21 @@ return require('packer').startup(function(use)
   use {
     'catppuccin/nvim',
     as = 'catppuccin',
-    config = require('plugins.catppuccin')
+    config = function()
+      require('plugins.configs.catppuccin')
+    end,
+  }
+  
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    setup = function()
+      require('core.lazy_load').on_file_open 'nvim-treesitter'
+    end,
+    cmd = require('core.lazy_load').treesitter_cmds,
+    run = ':TSUpdate',
+    config = function()
+      require('plugins.configs.treesitter')
+    end,
   }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
