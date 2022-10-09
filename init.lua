@@ -44,7 +44,7 @@ return require('packer').startup(function(use)
       require('plugins.configs.catppuccin')
     end,
   }
-  
+
   use {
     'nvim-treesitter/nvim-treesitter',
     setup = function()
@@ -83,7 +83,12 @@ return require('packer').startup(function(use)
       require "plugins.configs.lspconfig"
     end,
   }
-    
+
+  use {
+    'simrat39/rust-tools.nvim',
+    ft = 'rust',
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
