@@ -1,7 +1,3 @@
-vim.defer_fn(function()
-  pcall(require, "impatient")
-end, 0)
-
 -- autocmds
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -30,8 +26,6 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-
-  use 'lewis6991/impatient.nvim'
 
   use {
     "kyazdani42/nvim-web-devicons",
