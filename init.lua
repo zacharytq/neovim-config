@@ -56,6 +56,34 @@ return require('packer').startup(function(use)
       require('plugins.configs.treesitter')
     end,
   }
+
+  -- Setup mason before lspconfig.
+  -- Plugin docs says not to lazy load
+  use {
+    "williamboman/mason.nvim",
+    config = function()
+      require "plugins.configs.mason"
+    end,
+  }
+
+  use {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require "plugins.configs.mason-lspconfig"
+    end,
+  }
+
+  use {
+    'neovim/nvim-lspconfig',
+    opt = true,
+    setup = function()
+      require('core.lazy_load').on_file_open "nvim-lspconfig"
+    end,
+    config = function()
+      require "plugins.configs.lspconfig"
+    end,
+  }
+    
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
