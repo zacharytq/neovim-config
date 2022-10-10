@@ -111,6 +111,17 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require "plugins.configs.toggleterm"
+    end,
+    cmd = "ToggleTerm",
+    setup = function()
+      require "plugins.setups.toggleterm"
+    end
+  }
+
+  use {
     'hrsh7th/nvim-cmp',
     module = { "cmp", "cmp_nvim_lsp" },
     event = "InsertEnter",

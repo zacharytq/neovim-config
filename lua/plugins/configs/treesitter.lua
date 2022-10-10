@@ -8,6 +8,7 @@ local options = {
   ensure_installed = {
     "lua",
     "rust",
+    "markdown",
   },
 
   highlight = {
