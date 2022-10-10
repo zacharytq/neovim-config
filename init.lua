@@ -2,6 +2,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 require "core.options"
+require "core.mapps"
 
 -- dont list quickfix buffers
 autocmd("FileType", {
@@ -60,6 +61,9 @@ return require('packer').startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    setup = function()
+      require "plugins.setups.telescope"
+    end,
     config = function()
       require "plugins.configs.telescope"
     end,
