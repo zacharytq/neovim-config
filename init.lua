@@ -129,6 +129,17 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'lewis6991/gitsigns.nvim',
+    ft = 'gitcommit',
+    setup = function()
+      require("core.lazy_load").gitsigns()
+    end,
+    config = function()
+      require("plugins.configs.gitsigns")
+    end,
+  }
+
+  use {
     'hrsh7th/nvim-cmp',
     module = { "cmp", "cmp_nvim_lsp" },
     event = "InsertEnter",

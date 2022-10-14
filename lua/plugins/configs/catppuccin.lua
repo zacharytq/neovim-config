@@ -6,6 +6,13 @@ end
 
 vim.g.catppuccin_flavour = "mocha"
 
-catppuccin.setup()
+local options = {
+  integrations = {
+    gitsigns = true,
+    telescope = true,
+    treesitter = true,
+  }
+}
+catppuccin.setup(options)
 
 vim.cmd [[colorscheme catppuccin]]
