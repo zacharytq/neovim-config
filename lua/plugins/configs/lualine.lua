@@ -96,7 +96,7 @@ ins_left {
 ins_left {
   -- mode component
   function()
-    return ''
+    return ''
   end,
   color = function()
     -- auto change color according to neovims mode
@@ -224,7 +224,7 @@ ins_right {
     return '▊'
   end,
   color = { fg = colors.blue },
-  padding = { left = 1},
+  padding = { left = 1 },
 }
 
 -- Now don't forget to initialize lualine

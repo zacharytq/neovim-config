@@ -15,8 +15,9 @@ rm "$tmpfile"
 root_path=$( git rev-parse --show-toplevel )
 git_branch=$( git rev-parse --abbrev-ref HEAD )
 commit_hash=$( git rev-parse --short HEAD )
+host_name=&( echo $HOSTNAME )
 commit_message=$( git log -1 --format=%s )
-benchmark_dir=$root_path/benchmarks/$git_branch
+benchmark_dir=$root_path/benchmarks/$git_branch/$host_name
 benchmarks_file=$benchmark_dir/data.csv
 
 echo "Creating ${benchmark_dir} if not exists"
