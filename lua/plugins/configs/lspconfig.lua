@@ -103,3 +103,8 @@ lspconfig.sumneko_lua.setup {
     },
   },
 }
+
+lspconfig.omnisharp.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities
+}
