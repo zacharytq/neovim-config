@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+local fn_map = vim.keymap.set
 
 -- Space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -50,11 +51,13 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- LSP Shits
 --
-vim.keymap.set(
-  "n",
-  "K",
-  function()
-    vim.lsp.buf.hover()
-  end,
-  opts
-)
+fn_map("n", "K", function() vim.lsp.buf.hover() end, opts)
+fn_map("n", "gd", function() vim.lsp.buf.definition() end, opts)
+fn_map("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+fn_map("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+fn_map("n", "gr", function() vim.lsp.buf.references() end, opts)
+fn_map("n", "<leader>ls", function() vim.lsp.buf.signature_help() end, opts)
+fn_map("n", "<leader>D", function() vim.lsp.buf.type_definition() end, opts)
+fn_map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+fn_map("n", "<leader>f", function() vim.diagnostic.open_float() end, opts)
+fn_map("n", "<leader>ls", function() vim.lsp.buf.signature_help() end, opts)
