@@ -118,6 +118,28 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'muniftanjim/nui.nvim',
+    module = "nui",
+  }
+
+  use {
+    'rcarriga/nvim-notify',
+    module = 'notify'
+  }
+
+  use {
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = function()
+      require "plugins.configs.noice"
+    end,
+    requires = {
+      'rcarriga/nvim-notify',
+      'muniftanjim/nui.nvim',
+    }
+  }
+
+  use {
     'akinsho/toggleterm.nvim',
     config = function()
       require "plugins.configs.toggleterm"
