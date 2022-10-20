@@ -60,6 +60,7 @@ return require('packer').startup(function(use)
 
   use {
     "nvim-lualine/lualine.nvim",
+    event = "VimEnter",
     config = function ()
       require "plugins.configs.lualine"
     end,
