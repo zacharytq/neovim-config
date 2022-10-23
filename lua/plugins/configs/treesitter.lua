@@ -9,6 +9,7 @@ local options = {
     "lua",
     "rust",
     "markdown",
+    "c",
   },
 
   highlight = {
