@@ -39,12 +39,20 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'catppuccin/nvim',
-    as = 'catppuccin',
+    "folke/tokyonight.nvim",
     config = function()
-      require('plugins.configs.catppuccin')
+      require "plugins.configs.tokyonight"
     end,
+    module = "tokyonight",
   }
+
+  --use {
+  --  'catppuccin/nvim',
+  --  as = 'catppuccin',
+  --  config = function()
+  --    require('plugins.configs.catppuccin')
+  -- end,
+  --}
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -60,6 +68,7 @@ return require('packer').startup(function(use)
 
   use {
     "nvim-lualine/lualine.nvim",
+    event = "VimEnter",
     config = function ()
       require "plugins.configs.lualine"
     end,
@@ -115,6 +124,28 @@ return require('packer').startup(function(use)
     config = function()
       require "plugins.configs.rust-tools"
     end,
+  }
+
+  use {
+    'muniftanjim/nui.nvim',
+    module = "nui",
+  }
+
+  use {
+    'rcarriga/nvim-notify',
+    module = 'notify'
+  }
+
+  use {
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = function()
+      require "plugins.configs.noice"
+    end,
+    requires = {
+      'rcarriga/nvim-notify',
+      'muniftanjim/nui.nvim',
+    }
   }
 
   use {
