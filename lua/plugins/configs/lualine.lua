@@ -4,7 +4,8 @@ if not present then
   return
 end
 
-local cp = require("catppuccin.palettes").get_palette()
+--local cp = require("catppuccin.palettes").get_palette()
+local cp = require("tokyonight.colors").setup()
 
 -- Eviline config for lualine
 -- Author: shadmansaleh
@@ -12,16 +13,32 @@ local cp = require("catppuccin.palettes").get_palette()
 
 -- Color table for highlights
 -- stylua: ignore
+
+-- catppuccin colors
+--local colors = {
+--  bg       = cp.crust,
+--  fg       = cp.text,
+--  yellow   = cp.yellow,
+--  cyan     = cp.teal,
+--  darkblue = cp.sapphire,
+--  green    = cp.green,
+--  orange   = cp.peach,
+--  violet   = cp.lavender,
+--  magenta  = cp.maroon,
+--  blue     = cp.blue,
+--  red      = cp.red,
+--}
+
 local colors = {
-  bg       = cp.crust,
-  fg       = cp.text,
+  bg       = cp.bg_dark,
+  fg       = cp.fg,
   yellow   = cp.yellow,
-  cyan     = cp.teal,
-  darkblue = cp.sapphire,
-  green    = cp.green,
-  orange   = cp.peach,
-  violet   = cp.lavender,
-  magenta  = cp.maroon,
+  cyan     = cp.cyan,
+  darkblue = cp.blue0,
+  green    = cp.green1,
+  orange   = cp.orange,
+  violet   = cp.purple,
+  magenta  = cp.magenta,
   blue     = cp.blue,
   red      = cp.red,
 }

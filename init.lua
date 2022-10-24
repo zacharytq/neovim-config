@@ -39,12 +39,20 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'catppuccin/nvim',
-    as = 'catppuccin',
+    "folke/tokyonight.nvim",
     config = function()
-      require('plugins.configs.catppuccin')
+      require "plugins.configs.tokyonight"
     end,
+    module = "tokyonight",
   }
+
+  --use {
+  --  'catppuccin/nvim',
+  --  as = 'catppuccin',
+  --  config = function()
+  --    require('plugins.configs.catppuccin')
+  -- end,
+  --}
 
   use {
     'nvim-treesitter/nvim-treesitter',

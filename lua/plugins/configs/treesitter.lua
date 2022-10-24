@@ -10,6 +10,7 @@ local options = {
     "rust",
     "markdown",
     "c",
+    "vim"
   },
 
   highlight = {
