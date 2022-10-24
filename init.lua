@@ -43,7 +43,6 @@ return require('packer').startup(function(use)
     config = function()
       require "plugins.configs.tokyonight"
     end,
-    event = "VimEnter",
     module = "tokyonight",
   }
 
@@ -69,7 +68,7 @@ return require('packer').startup(function(use)
 
   use {
     "nvim-lualine/lualine.nvim",
-    after = "tokyonight",
+    event = "VimEnter",
     config = function ()
       require "plugins.configs.lualine"
     end,
