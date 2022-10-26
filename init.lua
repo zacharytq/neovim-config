@@ -15,7 +15,7 @@ autocmd("FileType", {
 autocmd("FileType", {
   pattern = "markdown",
   callback = function()
-    vim.opt.textwidth = 100
+    vim.opt.textwidth = 95
     vim.opt.formatoptions = vim.opt.formatoptions + "t"
   end
 })

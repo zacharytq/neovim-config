@@ -13,6 +13,29 @@ local time = function()
   return os.date("%H:%M")
 end
 
+local date = function()
+  return os.date("%x")
+end
+
+local buf_name = function()
+  return vim.fn.expand("%:t:r")
+end
+
+local note_id = function()
+  return os.time()
+end
+
+
+local function uuid()
+    math.randomseed(os.time())
+    local random = math.random
+    local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+    return string.gsub(template, '[xy]', function (c)
+        local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
+        return string.format('%x', v)
+    end)
+end
+
 local M = {
   s(
     { -- Table 1: snippet parameters
@@ -28,6 +51,26 @@ local M = {
       i(0),
     }
     -- Table 3, the advanced snippet options, is left blank.
+  ),
+
+  s(
+    {
+      trig = "frontmatter",
+      dscr = "A snippet that expands to yaml frontmatter for markdown",
+    },
+    fmt(
+      [[
+        ---
+        title: {}
+        date_created: {}
+        categories: [ {} ]
+        note_id: {}
+        ---
+        
+        {}
+      ]],
+      { f(buf_name), f(date), i(1), f(uuid), i(0)}
+    )
   ),
 }
 
