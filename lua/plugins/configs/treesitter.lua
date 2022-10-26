@@ -9,8 +9,10 @@ local options = {
     "lua",
     "rust",
     "markdown",
+    "markdown_inline",
     "c",
-    "vim"
+    "vim",
+    "bash",
   },
 
   highlight = {

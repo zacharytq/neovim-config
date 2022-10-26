@@ -5,7 +5,7 @@ if not present then
 end
 
 tn.setup({
-  style = "night"
+  style = "storm"
 })
 
 vim.cmd [[colorscheme tokyonight]]
