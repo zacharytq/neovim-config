@@ -21,10 +21,9 @@ local buf_name = function()
   return vim.fn.expand("%:t:r")
 end
 
-local note_id = function()
-  return os.time()
+local function long_date()
+  return os.date("%B %d, %Y")
 end
-
 
 local function uuid()
     math.randomseed(os.time())
@@ -72,6 +71,43 @@ local M = {
       { f(buf_name), f(date), i(1), f(uuid), i(0)}
     )
   ),
+
+  s(
+    {
+      trig = "dai",
+      dscr = "A snippet that expands to daily logs note template"
+    },
+    fmt(
+      [[
+        # {}
+
+        ## Tasks
+
+        ## Logs
+
+        {}
+      ]],
+      { f(long_date), i(0) }
+    )
+  ),
+
+  s(
+    {
+      trig = "dt",
+      dscr = "A snipped that expands to daily tasks"
+    },
+    fmt(
+      [[
+        - [] Daily -> Clean Mochi's litterbox
+        - [] Daily -> Feed Mochi
+        - [] Daily -> Brush teeth, morning
+        - [] Daily -> Brush teeth, night
+        - [] Daily -> Floss teeth
+        {}
+      ]],
+      {i(0)}
+    )
+  )
 }
 
 return M

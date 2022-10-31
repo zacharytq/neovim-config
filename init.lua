@@ -135,6 +135,14 @@ return require('packer').startup(function(use)
   }
 
   use {
+    "kyazdani42/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    config = function()
+      require "plugins.configs.nvimtree"
+    end,
+  }
+
+  use {
     'muniftanjim/nui.nvim',
     module = "nui",
   }
