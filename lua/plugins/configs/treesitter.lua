@@ -13,6 +13,7 @@ local options = {
     "c",
     "vim",
     "bash",
+    "make",
   },
 
   highlight = {
