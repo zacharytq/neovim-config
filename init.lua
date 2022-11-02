@@ -12,6 +12,14 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt.textwidth = 95
+    vim.opt.formatoptions = vim.opt.formatoptions + "t"
+  end
+})
+
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -123,6 +131,14 @@ return require('packer').startup(function(use)
     ft = 'rust',
     config = function()
       require "plugins.configs.rust-tools"
+    end,
+  }
+
+  use {
+    "kyazdani42/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    config = function()
+      require "plugins.configs.nvimtree"
     end,
   }
 

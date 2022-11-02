@@ -49,6 +49,10 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+-- Nvim Tree --
+keymap("n", "<leader>et", "<cmd> NvimTreeToggle <CR>", opts)
+keymap("n", "<leader>e", "<cmd> NvimTreeFocus <CR>", opts)
+
 -- LSP Shits
 --
 fn_map("n", "K", function() vim.lsp.buf.hover() end, opts)
