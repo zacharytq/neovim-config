@@ -14,6 +14,7 @@ local options = {
     "vim",
     "bash",
     "make",
+    "dockerfile",
   },
 
   highlight = {
