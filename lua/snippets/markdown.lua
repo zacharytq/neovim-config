@@ -17,6 +17,10 @@ local date = function()
   return os.date("%x")
 end
 
+local date_time = function()
+  return os.date("%x %H:%M")
+end
+
 local buf_name = function()
   return vim.fn.expand("%:t:r")
 end
@@ -38,7 +42,7 @@ end
 local M = {
   s(
     { -- Table 1: snippet parameters
-      trig="entry",
+      trig="tentry",
       dscr="An autotriggering snippet that expands 'hi' into 'Hello, world!'",
       regTrig=false,
       priority=100,
@@ -46,12 +50,27 @@ local M = {
     { -- Table 2: snippet nodes (don't worry about this for now---we'll cover nodes shortly)
       t("- "),-- A single text node
       f(time),
-      t(" | Entry -> "),
+      t(" |-> "),
       i(0),
     }
     -- Table 3, the advanced snippet options, is left blank.
   ),
 
+  s(
+    { -- Table 1: snippet parameters
+      trig="dtentry",
+      dscr="An autotriggering snippet that expands 'hi' into 'Hello, world!'",
+      regTrig=false,
+      priority=100,
+    },
+    { -- Table 2: snippet nodes (don't worry about this for now---we'll cover nodes shortly)
+      t("- "),-- A single text node
+      f(date_time),
+      t(" |-> "),
+      i(0),
+    }
+    -- Table 3, the advanced snippet options, is left blank.
+  ),
   s(
     {
       trig = "frontmatter",
