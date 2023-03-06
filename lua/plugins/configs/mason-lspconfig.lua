@@ -5,5 +5,5 @@ if not present then
 end
 
 mason.setup({
-  ensure_installed = { "sumneko_lua", "rust_analyzer" }
+  ensure_installed = { "rust_analyzer" }
 })

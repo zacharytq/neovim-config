@@ -47,12 +47,20 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "folke/tokyonight.nvim",
+    "bluz71/vim-nightfly-colors",
+    as = "nightfly",
     config = function()
-      require "plugins.configs.tokyonight"
-    end,
-    module = "tokyonight",
+      require "plugins.configs.nightfly"
+    end
   }
+
+  --use {
+  --  "folke/tokyonight.nvim",
+  --  config = function()
+  --    require "plugins.configs.tokyonight"
+  --  end,
+  --  module = "tokyonight",
+  --}
 
   --use {
   --  'catppuccin/nvim',

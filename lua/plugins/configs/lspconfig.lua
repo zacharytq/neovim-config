@@ -83,28 +83,8 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-lspconfig.sumneko_lua.setup {
-  on_attach = M.on_attach,
-  capabilities = M.capabilities,
+lspconfig.clangd.setup{}
 
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-        },
-        maxPreload = 100000,
-        preloadFileSize = 10000,
-      },
-    },
-  },
-}
-
-lspconfig.omnisharp.setup {
-  on_attach = M.on_attach,
-  capabilities = M.capabilities
+lspconfig.cmake.setup{
+  filetypes = { "CMakeLists.txt", "cmake" }
 }

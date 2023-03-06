@@ -5,7 +5,7 @@ if not present then
 end
 
 --local cp = require("catppuccin.palettes").get_palette()
-local cp = require("tokyonight.colors").setup()
+--local cp = require("tokyonight.colors").setup()
 
 -- Eviline config for lualine
 -- Author: shadmansaleh
@@ -29,18 +29,33 @@ local cp = require("tokyonight.colors").setup()
 --  red      = cp.red,
 --}
 
+-- tokyonight colors
+--local colors = {
+--  bg       = cp.bg_dark,
+--  fg       = cp.fg,
+--  yellow   = cp.yellow,
+--  cyan     = cp.cyan,
+--  darkblue = cp.blue0,
+--  green    = cp.green1,
+--  orange   = cp.orange,
+--  violet   = cp.purple,
+--  magenta  = cp.magenta,
+--  blue     = cp.blue,
+--  red      = cp.red,
+--}
+
 local colors = {
-  bg       = cp.bg_dark,
-  fg       = cp.fg,
-  yellow   = cp.yellow,
-  cyan     = cp.cyan,
-  darkblue = cp.blue0,
-  green    = cp.green1,
-  orange   = cp.orange,
-  violet   = cp.purple,
-  magenta  = cp.magenta,
-  blue     = cp.blue,
-  red      = cp.red,
+  bg       = "#011627",
+  fg       = "#c3ccdc",
+  yellow   = "#e3d18a",
+  cyan     = "#296596",
+  darkblue = "#092236",
+  green    = "#a1cd5e",
+  orange   = "#f78c6c",
+  violet   = "#c792ea",
+  magenta  = "#e39aa6",
+  red      = "#fc514e",
+  blue     = "#82aaff"
 }
 
 local conditions = {
