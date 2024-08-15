@@ -48,20 +48,3 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Nvim Tree --
-keymap("n", "<leader>et", "<cmd> NvimTreeToggle <CR>", opts)
-keymap("n", "<leader>e", "<cmd> NvimTreeFocus <CR>", opts)
-
--- LSP Shits
---
-fn_map("n", "K", function() vim.lsp.buf.hover() end, opts)
-fn_map("n", "gd", function() vim.lsp.buf.definition() end, opts)
-fn_map("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-fn_map("n", "gi", function() vim.lsp.buf.implementation() end, opts)
-fn_map("n", "gr", function() vim.lsp.buf.references() end, opts)
-fn_map("n", "<leader>ls", function() vim.lsp.buf.signature_help() end, opts)
-fn_map("n", "<leader>D", function() vim.lsp.buf.type_definition() end, opts)
-fn_map("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-fn_map("n", "<leader>f", function() vim.diagnostic.open_float() end, opts)
-fn_map("n", "<leader>ls", function() vim.lsp.buf.signature_help() end, opts)
